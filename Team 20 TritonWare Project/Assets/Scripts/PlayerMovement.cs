@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     // Serializables
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask groundLayers;
 
     // Update is called once per frame
     void Update()
@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour {
         {
             rb.linearVelocity = new Vector2(rb.linearVelocityX, rb.linearVelocityY * 0.5f);
         }
+
+        Flip();
     }
 
     private void FixedUpdate()
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayers);
     }
 
     private void Flip()

@@ -1,13 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PressureButton : MonoBehaviour
 {
     public string buttonID; // e.g., "Red", "Blue"
+    public List<string> triggerTags = new List<string>{"Player", "Object"};
     private int objectsOnButton = 0;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Add more tags if needed
+        if (triggerTags.Contains(other.tag)) // Add more tags if needed
         {
             objectsOnButton++;
             DoorManager.Instance.SetDoorState(buttonID, true);
@@ -16,7 +18,7 @@ public class PressureButton : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (triggerTags.Contains(other.tag))
         {
             objectsOnButton--;
             if (objectsOnButton <= 0)

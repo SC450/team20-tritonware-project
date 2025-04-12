@@ -22,17 +22,18 @@ public class GrabObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Calculate ray direction
+        Vector2 rayDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+
         // Send raycast to check if object can be picked up
-        RaycastHit2D hitInfo = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
+        RaycastHit2D hitInfo = Physics2D.Raycast(rayPoint.position, rayDirection, rayDistance);
 
         // Check for hit
         if (hitInfo.collider != null && hitInfo.collider.gameObject.layer == layerIndex)
         {
-            Debug.Log("Wow1");
             // Grab object
             if (Keyboard.current.eKey.wasPressedThisFrame && grabbedObject == null)
             {
-                Debug.Log("bruhhh");
                 grabbedObject = hitInfo.collider.gameObject;
                 grabbedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                 grabbedObject.transform.position = grabPoint.position;
@@ -48,6 +49,6 @@ public class GrabObjects : MonoBehaviour
         }
 
         // For debugging purposes
-        Debug.DrawRay(rayPoint.position, transform.right * rayDistance, Color.white);
+        Debug.DrawRay(rayPoint.position, rayDirection * rayDistance, Color.red);
     }
 }
