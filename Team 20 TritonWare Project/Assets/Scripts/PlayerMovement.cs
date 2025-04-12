@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     // Stack for logging movements
     private Stack<GameObject> movementLog = new Stack<GameObject>();
 
+    // Serializables
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
