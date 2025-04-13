@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 136915464decc4f8ca905c5e6d7c2365
+guid: e90bb8472ba3642099bac18ae5bf7c26
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1538510394984921021
-    second: Plat1_0
+      213: 4397281307294639608
+    second: BackgroundTest-Inverted_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plat1_0
+      name: BackgroundTest-Inverted_0
       rect:
         serializedVersion: 2
-        x: 1709
-        y: 1949
-        width: 1532
-        height: 362
+        x: 0
+        y: 0
+        width: 1920
+        height: 1728
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: db772588d03e95510800000000000000
-      internalID: 1538510394984921021
+      spriteID: 8f523ca1d08460d30800000000000000
+      internalID: 4397281307294639608
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Plat1_0: 1538510394984921021
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
