@@ -19,5 +19,5 @@ public class DoorController : MonoBehaviour
     {
         doorCollider.enabled = !isOpen;
         sr.color = isOpen ? new Color(doorColor.r, doorColor.g, doorColor.b, 0.3f) : doorColor;
-    }
+    } 
 }
