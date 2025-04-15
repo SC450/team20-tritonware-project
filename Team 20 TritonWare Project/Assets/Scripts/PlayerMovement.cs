@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject RespawnPoint;
     public GameObject clonePrefab; // assign in Inspector
 
+    private bool isFacingRight = true;
     private bool canJump = false;
     private bool isRecording = true; // control whether to record movements
     private float recordTimer = 0f;
@@ -40,16 +41,25 @@ public class PlayerMovement : MonoBehaviour
     {
         // Movement
         Vector2 direction = Vector2.zero;
+        bool flipX = true;
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
             direction = Vector2.right;
-            PlayerSR.flipX = false;
+            flipX = false;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             direction = Vector2.left;
-            PlayerSR.flipX = true;
+        }
+
+        // Update orientation transform
+        if (isFacingRight && direction.x < 0f || !isFacingRight && direction.x > 0f) 
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
 
         Move(direction);
@@ -73,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
             recordTimer += Time.deltaTime;
             if (recordTimer >= RecordInterval)
             {
-                positionHistory.Add(new MovementSnapshot(transform.position, PlayerSR.flipX));
+                positionHistory.Add(new MovementSnapshot(transform.position, flipX));
                 recordTimer = 0f;
             }
         }
