@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 219668803}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 236120821}
   - component: {fileID: 236120825}
   - component: {fileID: 236120826}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -329,11 +329,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5fad1180b9241d1995d149d50d681e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 236120822}
-  groundCheck: {fileID: 219668803}
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 192
+  PlayerRB: {fileID: 236120822}
+  PlayerSR: {fileID: 236120823}
+  Speed: 5
+  JumpStrength: 5
+  RecordInterval: 0.02
+  RespawnPoint: {fileID: 1572154199}
+  clonePrefab: {fileID: 5625845989392081800, guid: 310e8b7a174f12141b89c69e602ef803, type: 3}
 --- !u!114 &236120826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 427702236}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RayPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +778,7 @@ GameObject:
   - component: {fileID: 1313338470}
   m_Layer: 6
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1562,7 +1564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1851282198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GrabPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1590,7 +1592,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
-  - {fileID: 236120824}
   - {fileID: 1313338472}
   - {fileID: 1780702036}
   - {fileID: 1572154203}
@@ -1598,3 +1599,4 @@ SceneRoots:
   - {fileID: 1693840104}
   - {fileID: 1719496497}
   - {fileID: 1335126113}
+  - {fileID: 236120824}

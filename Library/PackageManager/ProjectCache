@@ -1,25 +1,25 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
-    m_FilePath: C:/Users/andre/OneDrive/Documents/GitHub/team20-tritonware-project/Packages/manifest.json
+    m_FilePath: C:/Users/money/OneDrive/Documents/GitHub/team20-tritonware-project/Packages/manifest.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638802530083149881
-    m_Hash: 205969706
+      ticks: 638802712164601320
+    m_Hash: 667505191
   m_LockFileStatus:
-    m_FilePath: C:/Users/andre/OneDrive/Documents/GitHub/team20-tritonware-project/Packages/packages-lock.json
+    m_FilePath: C:/Users/money/OneDrive/Documents/GitHub/team20-tritonware-project/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638802530235350539
-    m_Hash: 3025046548
+      ticks: 638802712164613977
+    m_Hash: 2904195732
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
   m_LocalFileStatus: []
-m_ProjectPath: C:/Users/andre/OneDrive/Documents/GitHub/team20-tritonware-project/Packages
+m_ProjectPath: C:/Users/money/OneDrive/Documents/GitHub/team20-tritonware-project/Packages
 m_EditorVersion: 6000.0.45f1 (d91bd3d4e081)
 m_ResolvedPackages:
 - packageId: com.unity.multiplayer.center@1.0.0
@@ -27,7 +27,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\andre\OneDrive\Documents\GitHub\team20-tritonware-project\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546
+  resolvedPath: C:\Users\money\OneDrive\Documents\GitHub\team20-tritonware-project\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546
   assetPath: Packages/com.unity.multiplayer.center
   name: com.unity.multiplayer.center
   displayName: Multiplayer Center
