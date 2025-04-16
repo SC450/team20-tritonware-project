@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Snapshot of position and flip state
 [System.Serializable]
 public struct MovementSnapshot
 {
@@ -24,13 +23,19 @@ public class PlayerMovement : MonoBehaviour
     public float JumpStrength;
     public float RecordInterval = 0.02f;
     public GameObject RespawnPoint;
-    public GameObject clonePrefab; // assign in Inspector
+    public GameObject clonePrefab;
 
-    private bool isFacingRight = true;
     private bool canJump = false;
-    private bool isRecording = true; // control whether to record movements
+    private bool isRecording = true;
     private float recordTimer = 0f;
     private List<MovementSnapshot> positionHistory = new List<MovementSnapshot>();
+
+    // Invincibility system
+    private bool isInvincible = false;
+    private float invincibilityTimer = 0f;
+    private float invincibilityDuration = 2f;
+    private const string normalLayer = "player";
+    private const string invincibleLayer = "invinciblePlayer";
 
     void Start()
     {
@@ -39,27 +44,30 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Handle invincibility timer
+        if (isInvincible)
+        {
+            invincibilityTimer -= Time.deltaTime;
+            if (invincibilityTimer <= 0f)
+            {
+                isInvincible = false;
+                gameObject.layer = LayerMask.NameToLayer(normalLayer); // Restore collision
+                PlayerSR.color = new Color(1f, 1f, 1f, 1f); // Reset transparency
+            }
+        }
+
         // Movement
         Vector2 direction = Vector2.zero;
-        bool flipX = true;
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
             direction = Vector2.right;
-            flipX = false;
+            PlayerSR.flipX = false;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             direction = Vector2.left;
-        }
-
-        // Update orientation transform
-        if (isFacingRight && direction.x < 0f || !isFacingRight && direction.x > 0f) 
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            PlayerSR.flipX = true;
         }
 
         Move(direction);
@@ -77,13 +85,13 @@ public class PlayerMovement : MonoBehaviour
             ReverseMovement();
         }
 
-        // Record position and flip state only if we're still recording
+        // Record movement history
         if (isRecording)
         {
             recordTimer += Time.deltaTime;
             if (recordTimer >= RecordInterval)
             {
-                positionHistory.Add(new MovementSnapshot(transform.position, flipX));
+                positionHistory.Add(new MovementSnapshot(transform.position, PlayerSR.flipX));
                 recordTimer = 0f;
             }
         }
@@ -96,40 +104,46 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Ground"))
+        if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Object"))
         {
             canJump = true;
-        } else if(collision.collider.CompareTag("Object"))
+        } else if (collision.collider.CompareTag("clone") && !isInvincible)
         {
-            canJump = true;
-        }
-        else if (collision.collider.CompareTag("danger"))
-        {
+            Destroy(collision.gameObject);
             Respawn();
         }
     }
+
+    
 
     void Respawn()
     {
         transform.position = RespawnPoint.transform.position;
         PlayerRB.linearVelocity = Vector2.zero;
         positionHistory.Clear();
+
+        
     }
 
-    // Method to stop recording and spawn the clone
     void ReverseMovement()
     {
-        isRecording = false; // Stop recording after pressing D
+        isRecording = false;
 
         if (positionHistory.Count == 0) return;
 
-        // Instantiate the clone and pass the recorded movement history
         GameObject clone = Instantiate(clonePrefab, transform.position, Quaternion.identity);
+        clone.layer = LayerMask.NameToLayer("Clone");
+
         ClonePlayback playbackScript = clone.GetComponent<ClonePlayback>();
         playbackScript.Initialize(positionHistory);
 
-        // After spawning the clone, reset and start recording new movements
-        positionHistory.Clear(); // Clear old history to discard it
-        isRecording = true; // Start recording new movements
+        positionHistory.Clear();
+        isRecording = true;
+
+        // Start invincibility after spawning clone
+        isInvincible = true;
+        invincibilityTimer = invincibilityDuration;
+        gameObject.layer = LayerMask.NameToLayer(invincibleLayer);
+        PlayerSR.color = new Color(1f, 1f, 1f, 0.5f);
     }
 }

@@ -335,7 +335,7 @@ MonoBehaviour:
   JumpStrength: 5
   RecordInterval: 0.02
   RespawnPoint: {fileID: 1572154199}
-  clonePrefab: {fileID: 5625845989392081800, guid: 310e8b7a174f12141b89c69e602ef803, type: 3}
+  clonePrefab: {fileID: 3055740793181781808, guid: 7b39feef6487e80449785b9ebd691d80, type: 3}
 --- !u!114 &236120826
 MonoBehaviour:
   m_ObjectHideFlags: 0
