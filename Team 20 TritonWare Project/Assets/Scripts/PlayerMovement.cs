@@ -37,6 +37,12 @@ public class PlayerMovement : MonoBehaviour
     private const string normalLayer = "player";
     private const string invincibleLayer = "invinciblePlayer";
 
+    // Sound effects
+    public AudioClip walking;
+    public AudioClip jumping;
+    public AudioSource walkingAudioSource;
+    public AudioSource jumpingAudioSource;
+
     void Start()
     {
         canJump = true;
@@ -61,13 +67,29 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            walkingAudioSource.clip = walking;
+            walkingAudioSource.enabled = true;
+
             direction = Vector2.right;
             PlayerSR.flipX = false;
+
+            // GameObject walkingSound = new GameObject("walkingSound");
+            // walkingSound.AddComponent<AudioSource>();
+            // AudioSource source = walkingSound.GetComponent<AudioSource>();
+            // source.clip = clip;
+            // source.Play();
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
+            walkingAudioSource.clip = walking;
+            walkingAudioSource.enabled = true;
+
             direction = Vector2.left;
             PlayerSR.flipX = true;
+        } 
+        else 
+        {
+            walkingAudioSource.enabled = false;
         }
 
         Move(direction);
@@ -75,8 +97,16 @@ public class PlayerMovement : MonoBehaviour
         // Jump
         if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
         {
+            jumpingAudioSource.clip = jumping;
+            jumpingAudioSource.PlayOneShot(jumping);
+
             PlayerRB.linearVelocity = new Vector2(PlayerRB.linearVelocity.x, JumpStrength);
             canJump = false;
+        }
+        
+        if (!canJump) 
+        {
+            walkingAudioSource.enabled = false;
         }
 
         // Spawn reverse clone when `D` is pressed
