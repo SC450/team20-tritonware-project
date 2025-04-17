@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     // Invincibility system
     private bool isInvincible = false;
     private float invincibilityTimer = 0f;
-    private float invincibilityDuration = 2f;
+    private float invincibilityDuration = 1f;
     private const string normalLayer = "player";
     private const string invincibleLayer = "invinciblePlayer";
 
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Object"))
         {
             canJump = true;
-        } else if (collision.collider.CompareTag("clone") && !isInvincible)
+        } else if (collision.collider.CompareTag("Player") && !isInvincible)
         {
             Destroy(collision.gameObject);
             Respawn();

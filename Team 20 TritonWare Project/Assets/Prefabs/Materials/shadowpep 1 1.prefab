@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 6272469517617147377}
   m_Layer: 8
   m_Name: shadowpep 1 1
-  m_TagString: clone
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
