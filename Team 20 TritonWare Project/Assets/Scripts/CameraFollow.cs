@@ -20,7 +20,6 @@ public class CameraFollow : MonoBehaviour
             Vector3 targetPosition = new Vector3(target.position.x, yAnchor, target.position.z) + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         }
-        Debug.Log(target.position);
     }
 
     // Initialize position for camera

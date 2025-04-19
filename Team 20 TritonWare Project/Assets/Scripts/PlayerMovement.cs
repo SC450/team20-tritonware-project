@@ -109,8 +109,8 @@ public class PlayerMovement : MonoBehaviour
             walkingAudioSource.enabled = false;
         }
 
-        // Spawn reverse clone when `D` is pressed
-        if (Input.GetKeyDown(KeyCode.D))
+        // Spawn reverse clone when `Space` is pressed
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ReverseMovement();
         }
