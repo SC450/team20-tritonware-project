@@ -190,12 +190,15 @@ PrefabInstance:
       propertyPath: jumpingAudioSource
       value: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       objectReference: {fileID: 408064795}
     - target: {fileID: 4627108037484424672, guid: 1d71a3c2dd03e460bb4680d09e9b7ab9, type: 3}
       propertyPath: walkingAudioSource
       value: 
       objectReference: {fileID: 1788468373}
 =======
+=======
+>>>>>>> Stashed changes
       objectReference: {fileID: 1340581960}
     - target: {fileID: 4627108037484424672, guid: 1d71a3c2dd03e460bb4680d09e9b7ab9, type: 3}
       propertyPath: walkingAudioSource
@@ -209,6 +212,9 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     - target: {fileID: 6281572627728334158, guid: 1d71a3c2dd03e460bb4680d09e9b7ab9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -519,6 +525,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338478910}
+<<<<<<< Updated upstream
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -13.796617, y: 1.2393909, z: 0.04686468}
@@ -652,9 +659,15 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.75407237, y: 3.0419893, z: 2.6822655}
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.796617, y: 1.2393909, z: 0.04686468}
+  m_LocalScale: {x: 0.27342048, y: 0.27342048, z: 0.27342048}
+>>>>>>> Stashed changes
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 958234025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &510405779
 GameObject:
@@ -2118,11 +2131,17 @@ SceneRoots:
   - {fileID: 22718128}
   - {fileID: 22379820}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 1788468374}
   - {fileID: 408064796}
 =======
+=======
+>>>>>>> Stashed changes
   - {fileID: 642328448}
   - {fileID: 1340581959}
   - {fileID: 1474261770}
   - {fileID: 739988068}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
