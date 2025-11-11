@@ -3,7 +3,7 @@
 
 [ Watch demo video](https://youtu.be/rAQLcVytJUM?si=CVKwckbGFiCXbfeT)
 
-
+![Alt text](space-to-switch-banner.png)
 
 ![Alt text](sc1.png)
 ![Alt text](sc2.png)
